@@ -1,0 +1,170 @@
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<style>
+   .flex /* Maybe, edit classname */ {
+      display: flex;
+      display: -webkit-flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+   }
+   #landing-section {
+      height: 100vh;
+      background: url(ladyNew.png) center/cover no-repeat; /* Edit url */
+   }
+   #landing-content {
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+   }
+   .landing-content /* Maybe, edit classname */ {
+      margin-bottom: 45px;
+   }
+   .landing-content:last-of-type {
+      margin-bottom: 0;
+   }
+   .landing-content-top {
+      font-size: 20px; /* Change px to rem */
+      color: white;
+      font-weight:; /* Add thin font weight */
+      letter-spacing: 1px;
+   }
+   .landing-content-middle {
+      font-size: 50px; /* Change px to rem */
+      line-height: 90px;
+      font-weight: bold;
+      color: white;
+   }
+   .container {
+      height: 100%;
+      position: relative;
+   }
+   input.landing-input {
+      background: none;
+      border: none;
+      color: #55ACED;
+      border-bottom: 4px solid;
+      border-bottom-color: #50A1DF;
+      line-height: 0;
+      text-align: center;
+      transition: border-bottom-color, box-shadow 300ms ;
+   }
+   input.landing-input:focus {
+      outline: none;
+      transition: border-bottom-color, box-shadow 300ms ;
+      -webkit-box-shadow: 0px 6px 5px -4px rgba(0,0,0,0.20);
+      -moz-box-shadow: 0px 6px 5px -4px rgba(0,0,0,0.20);
+      box-shadow: 0px 6px 5px -4px rgba(0,0,0,0.20);
+      border-bottom-color: #55ACED;
+   }
+   input.landing-input:active {
+      border-bottom-color: #55ACED;
+   }
+   input.landing-input:first-of-type {
+      width: 100px;
+   }
+   input.landing-input:last-of-type {
+      width: 260px; /* Match longest option */
+   }
+
+   .landing-btn {
+      width: 120px;
+      height: 42px;
+      border: none;
+      color: white;
+      margin: 0 6px;
+
+   }
+   #landing-btn-beregn {
+      background: #50A1DF;
+      -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.20);
+      -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.20);
+      box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.20);
+      transition: 300ms all;
+   }
+   #landing-btn-beregn:hover {
+      background: #55ACED;
+   }
+   #landing-btn-mere {
+      background: none;
+      border: 1px solid white;
+   }
+   a.landing-btn-a:active,
+   a.landing-btn-a:focus,
+   input.landing-btn:active,
+   input.landing-btn:focus {
+      outline: 0;
+   }
+   .landing-content-hvordan {
+      opacity: 0.6;
+      margin-top: 12px;
+   }
+   .landing-content-hvordan a {
+      color: white;
+   }
+   .landing-content-hvordan a:hover {
+      text-decoration: none;
+   }
+
+</style>
+
+<div id="landing-section">
+   <div class="container">
+      <div id="landing-content">
+         <div class="landing-content landing-content-top landing-content-top-1">
+            Find dit besparelsespotentiale.
+         </div>
+         <div style="display:none" class="landing-content landing-content-top landing-content-top-2">
+            Med Finansa kan jeg de næste 20 år spare:
+         </div>
+         <div class="landing-content landing-content-middle landing-content-middle-1">
+            Jeg er
+            <input class="landing-input" type="text" name="">
+            år gammel, </br> og jeg er
+            <input class="landing-input" href="" type="text" name=""> .
+         </div>
+         <div class="landing-content landing-content-middle landing-content-middle-2" style="display:none">942.500 .-</div>
+         <div class="landing-content landing-content-btns">
+            <a href="#" class="landing-btn-a"><input id="landing-btn-beregn" class="landing-btn" type="button" value="Beregn"></a>
+            <a href="#" class="landing-btn-a"><input id="landing-btn-mere" class="landing-btn" type="button" value="Lær mere"></a>
+            <p class="landing-content-hvordan"><a href="#">Hvordan har vi beregnet?</a></p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script>
+   $(function() {
+
+      var contentMiddle2 = $('.landing-content-middle-2');
+      var beregnBtn = $('#landing-btn-beregn');
+      var contentMiddle = $('.landing-content-middle-1');
+      var contentTop = $('.landing-content-top-1');
+      var contentTop2 = $('.landing-content-top-2');
+
+      function beregnBesparelse() {
+         contentMiddle.fadeOut('slow', function() {
+            contentMiddle2.fadeIn('slow');
+         });
+         contentTop.fadeOut('slow', function() {
+            contentTop2.fadeIn('slow');
+         });
+         beregnBtn.css({transition: '600ms background', background: '#07E288'});
+         beregnBtn[0].value = 'Tilmeld';
+      }
+
+      beregnBtn.on('click', beregnBesparelse);
+
+   })
+</script>
